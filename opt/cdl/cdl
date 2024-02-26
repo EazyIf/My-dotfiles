@@ -1,0 +1,28 @@
+#!/bin/bash
+
+output=$(~/opt/cdl/cdl.py "$@")
+
+if [ ! -d "$output" ]; then
+    echo "$output"
+    exit 1
+fi
+
+course_path="$output"
+clear
+# echo "$course_path"
+$SHELL -C "cd $course_path"
+
+
+# course_type=$(echo "$course_path" | awk -F'/' '{for(i=1;i<=NF;i++) if($i ~ /^course[0-9]+$/) print $(i-1)}')
+# week=$(echo "$course_path" | awk -F'/' '{for(i=1;i<=NF;i++) if($i ~ /^course[0-9]+$/) print $(i+1)}')
+# session_name="$week $course_type"
+
+# if ! tmux has-session -t="$session_name" 2> /dev/null; then
+    # tmux new-session -dc "$output" -s "$session_name"
+# fi
+#
+# if [[ -z $TMUX ]]; then
+    # tmux attach -t "$session_name"
+# else
+    # tmux switch-client -t "$session_name"
+# fi

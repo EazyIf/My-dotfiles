@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT="$1"
+# echo $INPUT
+SSH_CLONE="git@gitlab.com:ekronot_2023_north_haifa_12_3/yoavsenderovitz_18479893/Ekronot_2023_North_Haifa_12_3_YoavSenderovitz_18479893_Ex$INPUT.git"
+
+# echo $SSH_CLONE
+
+git clone $SSH_CLONE
+echo "cloning the repository"
+
+$SHELL -C "cp ~/opt/easyClone/.gitignore ."
+
